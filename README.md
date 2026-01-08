@@ -235,10 +235,18 @@ emails by the GWDG admins (they are never really angry, just disappointed).
 ```shell
 srun -p medium -c 1 -N 1 --pty bash
 ```
+After a short wait, you will see that your command line prompt has changed from
+`your_userid@gwdu_some-digits` to `your_userid@some_nodeID`. You are now on
+a "compute" node instead of a "login node". You can now run an interactive
+R or Python (or whatever) session or run scripts. You need to load the 
+appropriate modules first, of course. Once you're done, you can exit the
+session by typing `exit` or pressing `Ctrl-D`.
 
 `-c` determines the number of cores and `-N` the number of nodes. If you want to
 run a minimal job to quickly test something, `-N` is probably extraneous and you
-should just use `-c` with a small number of cores.
+should just use `-c` with a small number of cores. You can also add `-t hh:mm:ss`
+to indicate for how long you want the session to exist. The fewer resources you
+request and the shorter the session, the shorter your waiting time.
 
 ## The batch system (for bigger analyses)
 If you want to run parallel or interdependent analyses, you probably want to use
